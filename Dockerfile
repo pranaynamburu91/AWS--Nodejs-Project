@@ -1,8 +1,8 @@
 FROM node:22-slim
 
-ENV DOMAIN = "http://localhost:8080"\
-PORT=3000 \ 
-STATIC_DIR="./client"
+ENV PORT=3000 \
+    NODE_ENV=production \
+    DOMAIN=http://localhost:3000
 
 WORKDIR /app
 
