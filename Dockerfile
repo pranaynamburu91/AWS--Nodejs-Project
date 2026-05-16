@@ -1,15 +1,12 @@
-FROM ubuntu:latest
+FROM node:22-slim
 
-ENV DOMAIN="http://localhost:3000" \
-PORT=3000 \
+ENV DOMAIN = "http://localhost:8080"\
+PORT=3000 \ 
 STATIC_DIR="./client"
 
 WORKDIR /app
 
 COPY package*.json ./
-
-
-RUN apt update && apt install -y nodejs npm
 
 RUN npm install
 
@@ -17,4 +14,5 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["npm run", "server.js"]
+CMD ["node", "server.js"]
+
